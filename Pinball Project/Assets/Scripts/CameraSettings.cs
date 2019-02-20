@@ -21,7 +21,7 @@ public class CameraSettings : MonoBehaviour
     {
         if (theScore.ballControllAvailable)
         {
-            if (Input.GetKeyUp(KeyCode.Return))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 StartCoroutine(BallControllMode(ballControllModeDuration));
             }

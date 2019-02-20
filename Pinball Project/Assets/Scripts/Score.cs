@@ -49,6 +49,6 @@ public class Score : MonoBehaviour
     public void ResetMultiplier()
     {
         multiplier = 1;
-        //ballControllAvailable = false;
+        ballControllAvailable = false;
     }
 }
