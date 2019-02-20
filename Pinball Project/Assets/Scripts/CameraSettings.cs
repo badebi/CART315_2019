@@ -43,6 +43,7 @@ public class CameraSettings : MonoBehaviour
             i += Time.deltaTime;
             mainCamera.enabled = false;
             thirdPersonCamera.enabled = true;
+            GetComponent<BallController>().enabled = true;
             yield return null;
         }
         if (i >= ballControllModeDuration)
@@ -50,6 +51,7 @@ public class CameraSettings : MonoBehaviour
             theScore.ballControllAvailable = false;
             mainCamera.enabled = true;
             thirdPersonCamera.enabled = false;
+            GetComponent<BallController>().enabled = false;
             yield return null;
         }
 
