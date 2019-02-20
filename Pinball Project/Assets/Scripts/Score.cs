@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public int modeSwitchTreshold = 5;
     int score = 0;
     int multiplier = 1;
-
+    public bool ballControllAvailable = false;
     public TMPro.TextMeshPro multiplierText;
+
+  
 
     void Start()
     {
@@ -31,6 +34,11 @@ public class Score : MonoBehaviour
     public void AddMultiplier(int multiplierPoints)
     {
         multiplier += multiplierPoints;
+
+        if(multiplier >= modeSwitchTreshold)
+        {
+           ballControllAvailable = true;
+        }
     }
 
     public void ResetScore()
@@ -41,5 +49,6 @@ public class Score : MonoBehaviour
     public void ResetMultiplier()
     {
         multiplier = 1;
+        //ballControllAvailable = false;
     }
 }

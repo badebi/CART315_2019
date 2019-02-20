@@ -28,6 +28,7 @@ public class gameover : MonoBehaviour
             ball.transform.position = initialposition;
             theScore.ResetScore();
             theScore.ResetMultiplier();
+            theScore.ballControllAvailable = false;
         }
     }
 }
