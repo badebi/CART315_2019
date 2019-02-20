@@ -7,6 +7,7 @@ public class Bumper : MonoBehaviour
 {
     public Score bumpScore;
     private int timer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +33,10 @@ public class Bumper : MonoBehaviour
         if (timer == 0)
         {
             bumpScore.AddScore(5);
+            bumpScore.AddMultiplier(1);
         }
 
-        Debug.Log("Collision Detected");
+        //this.GetComponent<AudioSource>().Play();
         this.GetComponent<ConstantForce>().enabled = true;
         timer = 3;
     }

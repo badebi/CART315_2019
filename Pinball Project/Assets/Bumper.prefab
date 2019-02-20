@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5633691044148912327}
   - component: {fileID: 5633691044148912324}
   - component: {fileID: 5633691044148912326}
-  - component: {fileID: 5633691044148912329}
+  - component: {fileID: 7280995375850471162}
   m_Layer: 8
   m_Name: Bumper
   m_TagString: Untagged
@@ -1341,7 +1341,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1.9999999, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.04, y: -0.814509, z: 1.082692}
+  m_ConnectedAnchor: {x: 1.04, y: -1.2760717, z: 0.45528877}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1437,7 +1437,7 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 500, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &5633691044148912329
+--- !u!114 &7280995375850471162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1449,3 +1449,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1173e67e4daf0434d9bbf07e9c65a41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpScore: {fileID: 0}

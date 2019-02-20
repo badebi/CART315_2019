@@ -6,6 +6,7 @@ public class gameover : MonoBehaviour
 {
     private Vector3 initialposition;
     public GameObject ball;
+    public Score theScore;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,10 @@ public class gameover : MonoBehaviour
     {
         if (collider.gameObject == ball)
         {
+            Debug.Log("Game Over");
             ball.transform.position = initialposition;
+            theScore.ResetScore();
+            theScore.ResetMultiplier();
         }
     }
 }

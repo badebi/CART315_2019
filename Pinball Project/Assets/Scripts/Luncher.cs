@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Luncher : MonoBehaviour {
 
-public string button = "Luncher";
+    public string button = "Luncher";
+
 	// Use this for initialization
 	void Start () {
 		
