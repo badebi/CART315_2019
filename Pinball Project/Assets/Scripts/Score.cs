@@ -55,6 +55,7 @@ public class Score : MonoBehaviour
     {
         multiplier = 1;
         ballControllAvailable = false;
+        superPower.text = "";
     }
 
     public void HandleMultiplier()

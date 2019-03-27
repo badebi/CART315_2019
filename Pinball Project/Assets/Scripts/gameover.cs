@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameover : MonoBehaviour
 {
+    public Camera cam;
     private Vector3 initialposition;
+    private Vector3 initialCamPosition;
     public GameObject ball;
     public Score theScore;
     public bool gameOver = false;
@@ -13,6 +16,7 @@ public class gameover : MonoBehaviour
     void Start()
     {
         initialposition = ball.transform.position;
+        initialCamPosition = cam.transform.position;
     }
 
     // Update is called once per frame
@@ -27,10 +31,12 @@ public class gameover : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("Game Over");
-            ball.transform.position = initialposition;
-            theScore.ResetScore();
-            theScore.ResetMultiplier();
-            theScore.ballControllAvailable = false;
+            SceneManager.LoadScene("Pinball Project");
+            //ball.transform.position = initialposition;
+            //theScore.ResetScore();
+            //theScore.ResetMultiplier();
+            //theScore.ballControllAvailable = false;
+            //cam.transform.position = initialCamPosition;
         }
     }
 }
