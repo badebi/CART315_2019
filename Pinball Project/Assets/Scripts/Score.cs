@@ -9,8 +9,8 @@ public class Score : MonoBehaviour
     int multiplier = 1;
     public bool ballControllAvailable = false;
     public TMPro.TextMeshPro multiplierText;
-
-  
+    public TMPro.TextMeshPro superPower;
+    public TMPro.TextMeshPro treshold;
 
     void Start()
     {
@@ -19,11 +19,10 @@ public class Score : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-     
-            this.GetComponent<TMPro.TextMeshPro>().text = score.ToString();
-            multiplierText.text = "x" + multiplier.ToString();
-        
+    {   
+        this.GetComponent<TMPro.TextMeshPro>().text = score.ToString();
+        multiplierText.text = "x" + multiplier.ToString();
+        treshold.text = "x" + modeSwitchTreshold.ToString();
     }
 
     public void AddScore(int points)
@@ -37,18 +36,38 @@ public class Score : MonoBehaviour
 
         if(multiplier >= modeSwitchTreshold)
         {
-           ballControllAvailable = true;
+            superPower.text = "Press Space";
+            ballControllAvailable = true;
+        } else
+        {
+            superPower.text = "";
         }
     }
 
     public void ResetScore()
     {
         score = 0;
+        modeSwitchTreshold = 5;
+        superPower.text = "";
     }
 
     public void ResetMultiplier()
     {
         multiplier = 1;
         ballControllAvailable = false;
+    }
+
+    public void HandleMultiplier()
+    {
+        multiplier = Mathf.FloorToInt(multiplier / 2.0f);
+        if (multiplier > modeSwitchTreshold)
+        {
+            multiplier = Mathf.FloorToInt(multiplier / 2.0f);
+        }
+    }
+
+    public void SetNewTreshold()
+    {
+        modeSwitchTreshold = multiplier;
     }
 }
