@@ -32,7 +32,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "PinBall")
+        if (collision.gameObject.name == "PinBall" || collision.gameObject.name == "PinBall(1)")
         {
             groundContact = true;
         }

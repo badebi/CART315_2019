@@ -52,6 +52,7 @@ public class CameraSettings : MonoBehaviour
         }
         if (i >= ballControllModeDuration || gameOver.gameOver == true)
         {
+            theScore.HandleMultiplier();
             countDown.text = "";
             theScore.ballControllAvailable = false;
             mainCamera.enabled = true;
