@@ -26,4 +26,9 @@ public class Flipper : MonoBehaviour {
 			this.GetComponent<HingeJoint>().useMotor = false;
 		}
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        this.GetComponent<AudioSource>().Play();
+    }
 }

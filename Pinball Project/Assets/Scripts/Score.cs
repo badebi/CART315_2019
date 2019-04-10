@@ -5,12 +5,14 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int modeSwitchTreshold = 5;
-    int score = 0;
+    public int levelUnlockScore = 500;
+    public int score = 0;
     int multiplier = 1;
     public bool ballControllAvailable = false;
     public TMPro.TextMeshPro multiplierText;
     public TMPro.TextMeshPro superPower;
     public TMPro.TextMeshPro treshold;
+    public TMPro.TextMeshPro levelUnlock;
 
     void Start()
     {
@@ -23,6 +25,17 @@ public class Score : MonoBehaviour
         this.GetComponent<TMPro.TextMeshPro>().text = score.ToString();
         multiplierText.text = "x" + multiplier.ToString();
         treshold.text = "x" + modeSwitchTreshold.ToString();
+        levelUnlock.text = levelUnlockScore.ToString();
+
+        if (multiplier >= modeSwitchTreshold)
+        {
+            superPower.text = "Press UP ARROW";
+            ballControllAvailable = true;
+        }
+        else
+        {
+            superPower.text = "";
+        }
     }
 
     public void AddScore(int points)
@@ -34,14 +47,6 @@ public class Score : MonoBehaviour
     {
         multiplier += multiplierPoints;
 
-        if(multiplier >= modeSwitchTreshold)
-        {
-            superPower.text = "Press UP ARROW";
-            ballControllAvailable = true;
-        } else
-        {
-            superPower.text = "";
-        }
     }
 
     public void ResetScore()

@@ -46,7 +46,10 @@ public class CameraSettings : MonoBehaviour
         {
             i += Time.deltaTime;
             countDown.text = (ballControllModeDuration - i).ToString("00.00");
-            jumpText.SetActive(true);
+            if (theScore.score >= 500) {
+                jumpText.SetActive(true);
+            }
+            
             mainCamera.enabled = false;
             thirdPersonCamera.enabled = true;
             GetComponent<BallController>().enabled = true;

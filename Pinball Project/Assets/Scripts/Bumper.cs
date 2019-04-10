@@ -23,7 +23,7 @@ public class Bumper : MonoBehaviour
         }
         else
         {
-            Debug.Log(timer);
+            //Debug.Log(timer);
             timer--;
         }
     }
@@ -36,7 +36,7 @@ public class Bumper : MonoBehaviour
             bumpScore.AddMultiplier(1);
         }
 
-        //this.GetComponent<AudioSource>().Play();
+        this.GetComponent<AudioSource>().Play();
         this.GetComponent<ConstantForce>().enabled = true;
         timer = 3;
     }

@@ -19,22 +19,28 @@ public class BallController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(KeyCode.Space) && groundContact)
-        {
-            rb.AddForce(new Vector3(0, 4, 0), ForceMode.Impulse);
-            groundContact = false;
-        }
+        //CheckJump();
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
     }
 
+    private void CheckJump()
+    {
+        if (Input.GetButton("Jump") && groundContact)
+        {
+            rb.AddForce(new Vector3(0, 4, 0), ForceMode.Impulse);
+            groundContact = false;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "PinBall" || collision.gameObject.name == "PinBall(1)")
+        if (collision.gameObject.name == "PinBall" || collision.gameObject.name == "PinBall(1)" || collision.gameObject.name == "Table")
         {
             groundContact = true;
+            Debug.Log("can jump");
         }
     }
 }
