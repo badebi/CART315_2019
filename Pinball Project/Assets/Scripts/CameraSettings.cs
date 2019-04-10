@@ -10,6 +10,7 @@ public class CameraSettings : MonoBehaviour
     public float ballControllModeDuration = 5.0f;
     public TMPro.TextMeshPro countDown;
     public gameover gameOver;
+    public GameObject jumpText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class CameraSettings : MonoBehaviour
     {
         if (theScore.ballControllAvailable)
         {
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.UpArrow))
             {
                 theScore.SetNewTreshold();
                 StartCoroutine(BallControllMode(ballControllModeDuration));
@@ -45,6 +46,7 @@ public class CameraSettings : MonoBehaviour
         {
             i += Time.deltaTime;
             countDown.text = (ballControllModeDuration - i).ToString("00.00");
+            jumpText.SetActive(true);
             mainCamera.enabled = false;
             thirdPersonCamera.enabled = true;
             GetComponent<BallController>().enabled = true;
@@ -55,6 +57,7 @@ public class CameraSettings : MonoBehaviour
             theScore.HandleMultiplier();
             countDown.text = "";
             theScore.ballControllAvailable = false;
+            jumpText.SetActive(false);
             mainCamera.enabled = true;
             thirdPersonCamera.enabled = false;
             GetComponent<BallController>().enabled = false;

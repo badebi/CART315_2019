@@ -10,7 +10,7 @@ public class ChangeLevel : MonoBehaviour
     public GameObject ball;
     public GameObject PrevLevel;
     public GameObject NextLevel;
-    public GameObject nextGameOverLimit;
+    //public GameObject nextGameOverLimit;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class ChangeLevel : MonoBehaviour
             }
 
             NextLevel.SetActive(true);
-            nextGameOverLimit.SetActive(true);
+            //nextGameOverLimit.SetActive(true);
 
             //PrevLevel.GetComponent<Renderer>().enabled = false;
             //NextLevel.GetComponent<Renderer>().enabled = true;

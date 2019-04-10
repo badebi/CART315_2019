@@ -36,7 +36,7 @@ public class Score : MonoBehaviour
 
         if(multiplier >= modeSwitchTreshold)
         {
-            superPower.text = "Press Space";
+            superPower.text = "Press UP ARROW";
             ballControllAvailable = true;
         } else
         {
