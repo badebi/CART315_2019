@@ -13,10 +13,11 @@ public class Score : MonoBehaviour
     public TMPro.TextMeshPro superPower;
     public TMPro.TextMeshPro treshold;
     public TMPro.TextMeshPro levelUnlock;
+    public TMPro.TextMeshPro highScoreUI;
 
     void Start()
     {
-        
+        highScoreUI.text = PlayerPrefs.GetInt("HighScore", 0).ToString(); 
     }
 
     // Update is called once per frame
@@ -70,6 +71,16 @@ public class Score : MonoBehaviour
         {
             multiplier = Mathf.FloorToInt(multiplier / 2.0f);
         }
+    }
+
+    public void UpdateHighScore()
+    {
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            highScoreUI.text = score.ToString();
+        }
+   
     }
 
     public void SetNewTreshold()

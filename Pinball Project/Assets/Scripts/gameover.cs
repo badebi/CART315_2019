@@ -29,6 +29,7 @@ public class gameover : MonoBehaviour
     {
         if (collider.gameObject == ball)
         {
+            theScore.UpdateHighScore();
             gameOver = true;
             Debug.Log("Game Over");
             SceneManager.LoadScene("Pinball Project");
