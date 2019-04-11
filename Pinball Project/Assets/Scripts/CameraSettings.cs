@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class CameraSettings : MonoBehaviour
     public TMPro.TextMeshPro countDown;
     public gameover gameOver;
     public GameObject jumpText;
+    public TMPro.TextMeshPro ballControllTime;
+    private float addedTime = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +25,12 @@ public class CameraSettings : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        handleBallControllDuration();
         if (theScore.ballControllAvailable)
         {
             if (Input.GetKeyUp(KeyCode.UpArrow))
             {
+                ballControllModeDuration += addedTime;
                 theScore.SetNewTreshold();
                 StartCoroutine(BallControllMode(ballControllModeDuration));
             }
@@ -38,6 +43,21 @@ public class CameraSettings : MonoBehaviour
 
     }
 
+    private void handleBallControllDuration()
+    {
+        if (theScore.multiplier > theScore.modeSwitchTreshold)
+        {
+            addedTime = (theScore.multiplier - theScore.modeSwitchTreshold) / 4.0f;
+            
+            ballControllTime.text = "5.0s + " + addedTime.ToString("00.00") + "s";
+        }
+        else
+        {
+            //ballControllModeDuration = 5.0f;
+            ballControllTime.text = "5.0s";
+        }
+    }
+
     public IEnumerator BallControllMode(float _duration)
     {
         float i = 0.0f;
@@ -46,7 +66,7 @@ public class CameraSettings : MonoBehaviour
         {
             i += Time.deltaTime;
             countDown.text = (ballControllModeDuration - i).ToString("00.00");
-            if (theScore.score >= 500) {
+            if (theScore.score >= theScore.levelUnlockScore) {
                 jumpText.SetActive(true);
             }
             

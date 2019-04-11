@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: Slidey 1
   dynamicFriction: 0.1
   staticFriction: 0.1
-  bounciness: 0.36
+  bounciness: 0.69
   frictionCombine: 0
   bounceCombine: 0

@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
     public int modeSwitchTreshold = 5;
     public int levelUnlockScore = 500;
     public int score = 0;
-    int multiplier = 1;
+    public int multiplier = 1;
     public bool ballControllAvailable = false;
     public TMPro.TextMeshPro multiplierText;
     public TMPro.TextMeshPro superPower;
